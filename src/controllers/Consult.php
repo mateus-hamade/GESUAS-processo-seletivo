@@ -17,17 +17,18 @@ class Consult {
 
       $citizen = $manager->getCitizen($nis);
 
-      $message->setMessage(
-        $citizen 
-          ? "<div> 
-              <span> Nome Completo: </span>" . $citizen->getName() . 
-            "</div>" .
-            "<div> 
-              <span> NIS (Número de Indetificação Socal): </span>" . $citizen->getNis() . 
-            "</div>" 
-          : "Nenhum cidadão encontrado com o NIS informado.",
-        false
-      );
+      if ($citizen) {
+        $message->setMessage("
+          <div>
+            <span>Nome Completo: </span> {$citizen->getName()} 
+          </div>
+          <div>
+            <span>NIS (Número de Identificação Social): </span>{$citizen->getNis()}
+          </div>
+        ", false);
+      } else {
+        $message->setMessage("Nenhum cidadão encontrado com o NIS informado.", true);
+      }
     }
 
     require_once __DIR__ . '/../views/social/consult.php';

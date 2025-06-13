@@ -22,10 +22,12 @@ class Register {
       $nisValue = $nis->generateNis();
       $citizen = $manager->addCitizen($nome, $nisValue);
 
-      $message->setMessage(
-        $citizen->getNis(),
-        false
-      );
+      $message->setMessage("
+        <h3> Cidadão cadastrado com sucesso! </h3>
+        <div>
+          <span>NIS (Número de Identificação Social): </span>{$citizen->getNis()}
+        </div>
+      ", false);
     }
 
     require_once __DIR__ . '/../views/social/register.php';
