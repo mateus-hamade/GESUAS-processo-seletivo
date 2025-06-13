@@ -2,7 +2,6 @@
 
 namespace App\controllers;
 
-use App\config\Database;
 use App\models\entities\CitizenManager;
 use App\models\presentation\Message;
 use App\models\entities\NisGenerator;
