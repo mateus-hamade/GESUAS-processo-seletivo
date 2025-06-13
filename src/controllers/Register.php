@@ -2,13 +2,13 @@
 
 namespace App\controllers;
 
+use App\config\Database;
 use App\models\entities\CitizenManager;
 use App\models\presentation\Message;
 use App\models\entities\NisGenerator;
 
 class Register {
-  public function index() {
-    $manager = new CitizenManager();
+  public function index(CitizenManager $manager) {
     $nis = new NisGenerator();
     
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -23,7 +23,7 @@ class Register {
       $citizen = $manager->addCitizen($nome, $nisValue);
 
       $message->setMessage(
-        "Cidadão adicionado com sucesso! NIS:" . $citizen->getNis(),
+        $citizen->getNis(),
         false
       );
     }

@@ -6,9 +6,7 @@ use App\models\entities\CitizenManager;
 use App\models\presentation\Message;
 
 class Consult {
-  public function index() {   
-    $manager = new CitizenManager();
-
+  public function index(CitizenManager $manager) {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $message = new Message();
       $nis = filter_input(INPUT_POST, "nis");
@@ -21,8 +19,12 @@ class Consult {
 
       $message->setMessage(
         $citizen 
-          ? "Nome Completo:" . $citizen->getName() . 
-            "<br> NIS (Número de Indetificação Socal): " . $citizen->getNis() . ""
+          ? "<div> 
+              <span> Nome Completo: </span>" . $citizen->getName() . 
+            "</div>" .
+            "<div> 
+              <span> NIS (Número de Indetificação Socal): </span>" . $citizen->getNis() . 
+            "</div>" 
           : "Nenhum cidadão encontrado com o NIS informado.",
         false
       );
