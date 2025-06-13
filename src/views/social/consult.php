@@ -55,7 +55,6 @@
         echo 
         "<div class='alert-info'>
           <h3> Resultado da consulta </h3>
-          <p>As informações do cidadão são:</p>
           " . $message->getText() . "
         </div>";
       }

@@ -56,8 +56,6 @@
 
         echo 
         "<div class='$alert'>
-          <h3> Cidadão cadastrado com sucesso! </h3>
-          <p>Este é o seu codigo NIS:</p>
           <span>" . $message->getText() . "</span>
         </div>";
       }
