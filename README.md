@@ -17,3 +17,7 @@
 
 - Execute o projeto:
   - php -S localhost:8000 -t public/
+ 
+### Rotas de acesso
+- http://localhost:8000/index.php?url=social/cadastro
+- http://localhost:8000/index.php?url=social/consulta
