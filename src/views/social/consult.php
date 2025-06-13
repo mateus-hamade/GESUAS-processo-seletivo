@@ -53,8 +53,10 @@
     <?php
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo 
-        "<div class='result'>
-          <span>" . $message->getText() . "</span>
+        "<div class='alert-info'>
+          <h3> Resultado da consulta </h3>
+          <p>As informações do cidadão são:</p>
+          " . $message->getText() . "
         </div>";
       }
     ?>
